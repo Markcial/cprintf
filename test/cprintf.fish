@@ -25,3 +25,11 @@ end
 test "$TESTNAME It should add foreground and background colors"
   "foo "(set_color -b yellow)(set_color red)"bgyellow fgred"(set_color normal)(set_color normal) = (cprintf "foo <bg:yellow><fg:red>%s</fg></bg>" 'bgyellow fgred')
 end
+
+test "$TESTNAME It should support bold tags"
+  "foo "(set_color -o)bold(set_color normal) = (cprintf "foo <b>%s</b>" "bold")
+end
+
+test "$TESTNAME It should support underline tags"
+  "foo "(set_color -u)underline(set_color normal) = (cprintf "foo <u>%s</u>" "underline")
+end
