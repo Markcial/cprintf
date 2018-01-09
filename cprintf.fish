@@ -16,13 +16,13 @@ function cprintf -a text -d "Printf with colors"
           set color (echo $a | cut -d: -f 2)
           set_color -b $color
         case /b
-          set_color normal
+          printf "\e[22m"
         case /u
-          set_color normal
-        case /bg
-          set_color normal
+          printf "\e[24m"
         case /fg
-          set_color normal
+          printf "\e[39m"
+        case /bg
+          printf "\e[49m"
         case \*
           echo -n $a
       end
